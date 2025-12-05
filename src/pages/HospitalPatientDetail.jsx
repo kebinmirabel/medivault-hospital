@@ -67,7 +67,7 @@ export default function HospitalPatientDetail() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    navigate("/hospital-login");
+    navigate("/");
   };
 
   const goToRequestData = () => {

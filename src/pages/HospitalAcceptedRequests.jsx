@@ -17,7 +17,7 @@ export default function HospitalAcceptedRequests() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    navigate('/hospital-login');
+    navigate('/');
   };
 
   const goToRequestData = () => {

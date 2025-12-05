@@ -15,7 +15,7 @@ export default function HospitalDashboard() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    navigate("/hospital-login");
+    navigate("/");
   };
 
   const goToRequestData = () => {
