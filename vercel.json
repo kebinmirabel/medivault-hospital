@@ -1,5 +1,4 @@
 {
-  "name": "medivault-hospital-admin",
   "rewrites": [
     {
       "source": "/((?!api/.*).*)",
