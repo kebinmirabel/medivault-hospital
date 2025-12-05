@@ -842,7 +842,7 @@ textarea.form-input {
 }
 
 .medical-history-container {
-	height: calc(100vh - 425px);
+	height: calc(100vh - 100px);
 	overflow-y: auto;
 	padding-right: 8px;
 	box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
@@ -985,6 +985,7 @@ textarea.form-input {
 	font-size: 14px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 	transition: all 0.2s ease;
+  margin-bottom: 20px;
 }
 
 .insert-record:hover {
@@ -1449,16 +1450,20 @@ textarea.form-input {
 /* Fix dashboard page layout */
 .dashboard-page {
   min-height: calc(100vh - 64px);
-  padding: 20px;
+  padding-top: 64px; /* Space for fixed navbar */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   background: var(--bg, #fffaf6);
   display: flex;
   justify-content: center;
+  align-items: flex-start; /* Don't center vertically, start from top */
 }
 
 .dashboard-inner {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto; /* Add top margin for spacing */
   padding: 0 20px;
 }
 
@@ -1502,8 +1507,11 @@ textarea.form-input {
 .lr-page.page-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
+  align-items: flex-start; /* Start from top, don't center vertically */
+  padding-top: 64px; /* Space for navbar */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   background: var(--bg, #fffaf6);
   min-height: calc(100vh - 64px);
 }
