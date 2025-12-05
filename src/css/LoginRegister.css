@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap");
+
+:root {
+  --bg: #fffaf6; /* warm cream */
+  --accent-green: #5aa77a;
+  --accent-red: #ff1f43;
+  --input-border: #b9d6c0;
+  --muted: #6b6b6b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: var(--bg);
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system,
+    "Helvetica Neue", Arial;
+  color: #111;
+  /* Hide scrollbar */
+  overflow: hidden;
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+  scrollbar-width: none;
+}
+
+input::placeholder {
+  color: #c5c5c5; /* light gray */
+}
+
+
+.lr-page {
+  /* act as a positioned container so we can absolutely center the inner card
+     without relying on other elements' display properties */
+  position: relative;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: var(--bg);
+}
+
+
+.lr-inner {
+  /* absolute-centering keeps the .lr-inner centered vertically and
+     horizontally regardless of other flow/layout on the page */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lr-logo h1 {
+  margin: 0 0 20px 0;
+  line-height: 1;
+  font-weight: 800;
+  font-size: clamp(48px, 9vw, 120px);
+  letter-spacing: -2px;
+}
+
+.logo-medi {
+  font-family: "Afacad";
+  color: var(--accent-red);
+}
+.logo-vault {
+  font-family: "Afacad";
+  color: var(--accent-green);
+}
+
+.lr-box {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.lr-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.lr-input {
+  width: 100%;
+  max-width: 360px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--input-border);
+  background: rgba(255, 255, 255, 0.6);
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: rgb(16, 16, 16);
+}
+
+.lr-pulse {
+  max-width: 300px;
+}
+
+.lr-input:focus {
+  box-shadow: 0 0 0 4px rgba(90, 167, 122, 0.07);
+  border-color: var(--accent-green);
+}
+
+.lr-submit {
+  margin-top: 6px;
+  width: 220px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(180deg, var(--accent-green), #3f8e60);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(42, 120, 80, 0.12);
+  
+}
+
+.lr-switch {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.lr-link {
+  background: none;
+  border: none;
+  color: var(--accent-green);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+}
+
+@media (max-width: 640px) {
+  .lr-grid {
+    grid-template-columns: 1fr;
+  }
+  .lr-input {
+    max-width: 100%;
+  }
+  .lr-pulse {
+    max-width: 320px;
+  }
+}
+
+/* Register-specific styling */
+.lr-box.register-box {
+  /* allow the register layout to breathe a bit more */
+  max-width: 760px;
+}
+
+.lr-form.lr-register {
+  width: 100%;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.85));
+  box-shadow: 0 12px 30px rgba(35,50,60,0.08);
+  border: 1px solid rgba(34,60,52,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align-items: stretch; make inputs expand to available width */
+}
+
+.lr-form.lr-register .lr-grid {
+  gap: 12px;
+}
+
+/* make register inputs slightly more prominent and rectangular */
+.lr-form.lr-register .lr-input {
+  border-radius: 10px;
+  background: #ffffff;
+  border-color: rgba(180,200,185,0.9);
+  padding: 12px 16px;
+}
+
+/* reduce max-width on pulse inputs so they still align nicely inside the card */
+.lr-form.lr-register .lr-pulse {
+  max-width: 420px;
+}
+
+/* different submit look for register */
+.lr-form.lr-register .lr-submit {
+  width: 240px;
+  background: linear-gradient(180deg, #ff7a86, #ff3a55);
+  box-shadow: 0 8px 22px rgba(255, 59, 85, 0.12);
+}
+
+/* slightly different link color when in register mode */
+.lr-box.register-box .lr-link {
+  color: #ff3a55;
+}
+
+@media (max-width: 640px) {
+  .lr-box.register-box {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+  .lr-form.lr-register .lr-pulse {
+    max-width: 100%;
+  }
+}
+
+/* Date input wrapper with calendar icon */
+.date-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.date-wrapper .lr-input {
+  /* give space on the right for the icon */
+  padding-right: 44px;
+}
+
+.date-icon {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+}
+
+.date-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.date-icon:hover,
+.date-icon:focus {
+  color: var(--accent-green);
+}
+
+/* ensure the button doesn't overflow grid cells */
+.lr-grid .date-wrapper {
+  width: 100%;
+}
+
+/* Register grid layout: 3 columns for the requested rows */
+.register-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.register-grid .fullwidth {
+  grid-column: 1 / -1; /* address spans all columns */
+}
+
+/* Ensure fullwidth inputs/textarea actually fill the form width */
+.register-grid .fullwidth.lr-input,
+.register-grid .fullwidth.lr-textarea,
+.register-grid .fullwidth textarea,
+.register-grid .fullwidth input {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lr-textarea {
+  min-height: 84px;
+  resize: vertical;
+  padding: 12px 16px;
+}
+
+/* small field wrapper for labels above inputs (used for birthday) */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: revert;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 0;
+  font-family: revert;
+}
+
+/* center email & password inputs */
+.center-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.center-inputs .lr-input.lr-pulse {
+  max-width: 320px;
+}
+
+@media (max-width: 860px) {
+  .register-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .register-grid .fullwidth {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Autofill styling: change saved credential text to green and add a soft green tint where browsers allow it. */
+/* Note: styling autofill is browser-specific. WebKit/Blink (Chrome, Edge) and Firefox support different pseudo-classes. */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--accent-green) !important;
+  color: var(--accent-green) !important;
+  /* Keep a subtle background tint for autofill (uses a large inset box-shadow hack) */
+  -webkit-box-shadow: 0 0 0px 1000px rgba(90,167,122,0.06) inset !important;
+  box-shadow: 0 0 0px 1000px rgba(90,167,122,0.06) inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Firefox autofill */
+input:-moz-autofill,
+textarea:-moz-autofill,
+select:-moz-autofill {
+  box-shadow: 0 0 0px 1000px rgba(90,167,122,0.06) inset !important;
+  color: var(--accent-green) !important;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
